@@ -373,14 +373,5 @@ def delete_alumni(id):
     flash('Alumni profile deleted.', 'info')
     return redirect(url_for('admin_dashboard'))
 
-@app.route('/setup-admin-eict2024')
-def setup_admin():
-    user = User.query.filter_by(email='emmanuelkingchris@gmail.com').first()
-    if user:
-        user.is_admin = True
-        db.session.commit()
-        return 'Admin granted to ' + user.username
-    return 'User not found - make sure you registered first'
-
 if __name__ == '__main__':
     app.run(debug=True)
