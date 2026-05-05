@@ -1,36 +1,131 @@
-/* EICT Portal Custom Styles */
+/* ================================
+   EICT PORTAL — Custom Stylesheet
+   ================================ */
+
+:root {
+    --eict-blue: #003580;
+    --eict-gold: #f5a623;
+    --eict-light: #f0f4f8;
+}
 
 body {
-    background-color: #f8f9fa;
-    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--eict-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---- NAVBAR ---- */
+.navbar {
+    background-color: var(--eict-blue) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .navbar-brand {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--eict-gold) !important;
     letter-spacing: 1px;
 }
 
+.nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--eict-gold) !important;
+}
+
+/* ---- HERO SECTION ---- */
+.hero-section {
+    background: linear-gradient(135deg, var(--eict-blue), #0057b8);
+    border-radius: 16px;
+    padding: 60px 40px;
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(0,53,128,0.3);
+}
+
+.hero-section h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+
+.hero-section p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+}
+
+/* ---- CARDS ---- */
 .card {
     border: none;
-    border-radius: 12px;
-    transition: transform 0.2s;
+    border-radius: 14px;
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
 }
 
 .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 
-.hero-section {
-    background: linear-gradient(135deg, #0d6efd, #0a58ca);
-    border-radius: 16px;
+/* ---- BUTTONS ---- */
+.btn-primary {
+    background-color: var(--eict-blue);
+    border-color: var(--eict-blue);
 }
 
-footer {
-    margin-top: 60px;
+.btn-primary:hover {
+    background-color: #002a6b;
+    border-color: #002a6b;
 }
 
+.btn-warning {
+    background-color: var(--eict-gold);
+    border-color: var(--eict-gold);
+    color: #fff;
+}
+
+/* ---- BADGES ---- */
 .badge {
-    font-size: 0.8rem;
-    padding: 6px 10px;
+    font-size: 0.78rem;
+    padding: 5px 10px;
     border-radius: 8px;
+}
+
+/* ---- FOOTER ---- */
+footer {
+    background-color: var(--eict-blue) !important;
+    color: #cdd9e8;
+    padding: 20px 0;
+    margin-top: 60px;
+    font-size: 0.9rem;
+}
+
+/* ---- ADMIN DASHBOARD ---- */
+.stat-card {
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ---- FORMS ---- */
+.form-control:focus {
+    border-color: var(--eict-blue);
+    box-shadow: 0 0 0 0.2rem rgba(0,53,128,0.2);
+}
+
+/* ---- TABLE ---- */
+.table thead {
+    background-color: var(--eict-blue);
+    color: white;
+}
+
+/* ---- ALERTS ---- */
+.alert {
+    border-radius: 10px;
+    border: none;
 }
