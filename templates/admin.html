@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">⚙️ Admin Dashboard</h2>
+
+<!-- Stats Row -->
+<div class="row g-4 mb-5">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary shadow-sm text-center p-3">
+            <h2>{{ total_jobs }}</h2>
+            <p class="mb-0">💼 Jobs</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success shadow-sm text-center p-3">
+            <h2>{{ total_internships }}</h2>
+            <p class="mb-0">🏫 Internships</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning shadow-sm text-center p-3">
+            <h2>{{ total_alumni }}</h2>
+            <p class="mb-0">🤝 Alumni</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-dark shadow-sm text-center p-3">
+            <h2>{{ total_users }}</h2>
+            <p class="mb-0">👤 Users</p>
+        </div>
+    </div>
+</div>
+
+<!-- Action Buttons -->
+<div class="row g-3 mb-5">
+    <div class="col-md-4">
+        <a href="/admin/add-job" class="btn btn-primary w-100 py-3">➕ Add Job Listing</a>
+    </div>
+    <div class="col-md-4">
+        <a href="/admin/add-internship" class="btn btn-success w-100 py-3">➕ Add Internship</a>
+    </div>
+    <div class="col-md-4">
+        <a href="/admin/add-alumni" class="btn btn-warning w-100 py-3">➕ Add Alumni Profile</a>
+    </div>
+</div>
+
+<!-- Recent Jobs -->
+<h4>Recent Jobs</h4>
+<table class="table table-hover mb-5">
+    <thead class="table-dark">
+        <tr><th>Title</th><th>Company</th><th>Type</th><th>Posted</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+        {% for job in recent_jobs %}
+        <tr>
+            <td>{{ job.title }}</td>
+            <td>{{ job.company }}</td>
+            <td>{{ job.job_type }}</td>
+            <td>{{ job.posted_at.strftime('%b %d, %Y') }}</td>
+            <td><a href="/admin/delete-job/{{ job.id }}" class="btn btn-sm btn-danger" onclick="return confirm('Delete this job?')">Delete</a></td>
+        </tr>
+        {% else %}
+        <tr><td colspan="5" class="text-center">No jobs yet</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Recent Internships -->
+<h4>Recent Internships</h4>
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr><th>Title</th><th>Company</th><th>Duration</th><th>Posted</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+        {% for i in recent_internships %}
+        <tr>
+            <td>{{ i.title }}</td>
+            <td>{{ i.company }}</td>
+            <td>{{ i.duration }}</td>
+            <td>{{ i.posted_at.strftime('%b %d, %Y') }}</td>
+            <td><a href="/admin/delete-internship/{{ i.id }}" class="btn btn-sm btn-danger" onclick="return confirm('Delete this internship?')">Delete</a></td>
+        </tr>
+        {% else %}
+        <tr><td colspan="5" class="text-center">No internships yet</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

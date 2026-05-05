@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm p-4">
+            <h3 class="mb-4">➕ Add Internship</h3>
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Internship Title</label>
+                    <input type="text" name="title" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Company</label>
+                    <input type="text" name="company" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Location</label>
+                    <input type="text" name="location" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Duration (e.g. 3 months)</label>
+                    <input type="text" name="duration" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Stipend</label>
+                    <input type="text" name="stipend" class="form-control" placeholder="e.g. ₦30,000/month or Unpaid">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea name="description" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Post Internship</button>
+                <a href="/admin" class="btn btn-secondary w-100 mt-2">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

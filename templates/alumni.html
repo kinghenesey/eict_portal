@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>🤝 Alumni Network</h2>
+</div>
+
+{% if alumni %}
+    <div class="row g-4">
+        {% for person in alumni %}
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm text-center">
+                <div class="card-body">
+                    <div class="display-4 mb-2">👤</div>
+                    <h5 class="card-title">{{ person.name }}</h5>
+                    <p class="text-muted small">🎓 Class of {{ person.graduation_year }}</p>
+                    <p class="text-muted small">📚 {{ person.course }}</p>
+                    <hr>
+                    <p class="small"><strong>{{ person.current_job }}</strong></p>
+                    <p class="text-muted small">🏢 {{ person.company }}</p>
+                    {% if person.bio %}
+                        <p class="card-text small">{{ person.bio[:120] }}...</p>
+                    {% endif %}
+                    {% if person.linkedin %}
+                        <a href="{{ person.linkedin }}" target="_blank" class="btn btn-sm btn-outline-primary mt-2">
+                            🔗 LinkedIn
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% else %}
+    <div class="alert alert-info text-center">
+        <h4>No alumni profiles yet.</h4>
+        <p>Alumni profiles will be listed here soon!</p>
+    </div>
+{% endif %}
+
+{% endblock %}

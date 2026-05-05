@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm p-4">
+            <h3 class="mb-4">➕ Add Alumni Profile</h3>
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Graduation Year</label>
+                    <input type="number" name="graduation_year" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Course Studied</label>
+                    <input type="text" name="course" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Current Job Title</label>
+                    <input type="text" name="current_job" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Current Company</label>
+                    <input type="text" name="company" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">LinkedIn URL (optional)</label>
+                    <input type="url" name="linkedin" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Short Bio (optional)</label>
+                    <textarea name="bio" class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-warning w-100">Add Alumni</button>
+                <a href="/admin" class="btn btn-secondary w-100 mt-2">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

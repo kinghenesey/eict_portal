@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>💼 Job Listings</h2>
+</div>
+
+{% if jobs %}
+    <div class="row g-4">
+        {% for job in jobs %}
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <span class="badge bg-primary mb-2">{{ job.job_type }}</span>
+                    <h5 class="card-title">{{ job.title }}</h5>
+                    <h6 class="text-muted">🏢 {{ job.company }}</h6>
+                    <p class="text-muted small">📍 {{ job.location }}</p>
+                    <hr>
+                    <p class="card-text">{{ job.description[:150] }}...</p>
+                    <p class="small"><strong>Requirements:</strong> {{ job.requirements[:100] }}...</p>
+                    <p class="text-muted small">Posted: {{ job.posted_at.strftime('%B %d, %Y') }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% else %}
+    <div class="alert alert-info text-center">
+        <h4>No job listings yet.</h4>
+        <p>Check back soon — opportunities will be posted here!</p>
+    </div>
+{% endif %}
+
+{% endblock %}

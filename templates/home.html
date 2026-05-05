@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<div class="p-5 mb-4 bg-primary text-white rounded-3 text-center">
+    <h1 class="display-4 fw-bold">Welcome to EICT Portal</h1>
+    <p class="lead">Your gateway to jobs, internships, and alumni connections at ECWA International College of Technology</p>
+</div>
+
+<!-- FEATURE CARDS -->
+<div class="row g-4 mt-2">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <h2>💼</h2>
+                <h5 class="card-title">Job Listings</h5>
+                <p class="card-text">Browse full-time job opportunities posted by employers looking for EICT graduates.</p>
+                <a href="/jobs" class="btn btn-primary">View Jobs</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <h2>🏫</h2>
+                <h5 class="card-title">Internships</h5>
+                <p class="card-text">Find internship placements to gain real-world experience while still in school.</p>
+                <a href="/internships" class="btn btn-success">View Internships</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <h2>🤝</h2>
+                <h5 class="card-title">Alumni Network</h5>
+                <p class="card-text">Connect with EICT graduates who are already making an impact in their careers.</p>
+                <a href="/alumni" class="btn btn-warning">Meet Alumni</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
