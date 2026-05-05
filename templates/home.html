@@ -1,80 +1,67 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
 <!-- HERO -->
 <div class="hero-section">
-    <h1>🎓 EICT Student & Job Portal</h1>
-    <p>Your gateway to careers, internships, and alumni connections<br>at ECWA International College of Technology</p>
-    <a href="/jobs" class="btn btn-warning btn-lg me-2 mt-3">Browse Jobs</a>
-    <a href="/internships" class="btn btn-outline-light btn-lg mt-3">Find Internships</a>
-</div>
-
-<!-- STATS BAR -->
-<div class="row text-center mb-5 g-3">
-    <div class="col-md-4">
-        <div class="card py-3">
-            <h3 class="text-primary fw-bold">💼</h3>
-            <p class="mb-0 fw-semibold">Job Opportunities</p>
-            <small class="text-muted">Full-time & part-time roles</small>
-        </div>
+    <div style="display:inline-block; background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.3); border-radius:20px; padding:6px 16px; font-size:0.8rem; color:#93c5fd; margin-bottom:16px; font-weight:600;">
+        🎓 ECWA International College of Technology
     </div>
-    <div class="col-md-4">
-        <div class="card py-3">
-            <h3 class="text-success fw-bold">🏫</h3>
-            <p class="mb-0 fw-semibold">Internship Placements</p>
-            <small class="text-muted">Gain real-world experience</small>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card py-3">
-            <h3 class="fw-bold" style="color: var(--eict-gold);">🤝</h3>
-            <p class="mb-0 fw-semibold">Alumni Network</p>
-            <small class="text-muted">Connect with EICT graduates</small>
-        </div>
-    </div>
+    <h1>Your Career Starts Here</h1>
+    <p>Discover jobs, internships, and connect with alumni who've walked the same path at EICT.</p>
+    <a href="/jobs" class="btn btn-primary btn-lg me-3">
+        <i class="bi bi-briefcase me-2"></i>Browse Jobs
+    </a>
+    <a href="/internships" class="btn btn-outline-light btn-lg">
+        <i class="bi bi-building me-2"></i>Find Internships
+    </a>
 </div>
 
 <!-- FEATURE CARDS -->
-<h4 class="mb-4 fw-bold">Explore the Portal</h4>
-<div class="row g-4">
+<div class="row g-4 mb-5">
     <div class="col-md-4">
-        <div class="card h-100">
-            <div class="card-body text-center p-4">
-                <div style="font-size:2.5rem;">💼</div>
-                <h5 class="card-title mt-2">Job Listings</h5>
-                <p class="card-text text-muted">Browse full-time opportunities posted by employers seeking EICT graduates.</p>
-                <a href="/jobs" class="btn btn-primary">View Jobs</a>
+        <div class="card h-100 p-4">
+            <div style="width:48px;height:48px;background:rgba(37,99,235,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+                <i class="bi bi-briefcase-fill" style="color:var(--primary);font-size:1.4rem;"></i>
             </div>
+            <h5 class="card-title">Job Listings</h5>
+            <p class="card-text">Full-time and part-time opportunities posted by employers actively seeking EICT graduates.</p>
+            <a href="/jobs" class="btn btn-primary mt-auto">View Jobs <i class="bi bi-arrow-right ms-1"></i></a>
         </div>
     </div>
     <div class="col-md-4">
-        <div class="card h-100">
-            <div class="card-body text-center p-4">
-                <div style="font-size:2.5rem;">🏫</div>
-                <h5 class="card-title mt-2">Internships</h5>
-                <p class="card-text text-muted">Find internship placements to gain hands-on experience while in school.</p>
-                <a href="/internships" class="btn btn-success">View Internships</a>
+        <div class="card h-100 p-4">
+            <div style="width:48px;height:48px;background:rgba(16,185,129,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+                <i class="bi bi-building" style="color:var(--success);font-size:1.4rem;"></i>
             </div>
+            <h5 class="card-title">Internships</h5>
+            <p class="card-text">Hands-on internship placements to build your skills and gain real industry experience.</p>
+            <a href="/internships" class="btn btn-success mt-auto">View Internships <i class="bi bi-arrow-right ms-1"></i></a>
         </div>
     </div>
     <div class="col-md-4">
-        <div class="card h-100">
-            <div class="card-body text-center p-4">
-                <div style="font-size:2.5rem;">🤝</div>
-                <h5 class="card-title mt-2">Alumni Network</h5>
-                <p class="card-text text-muted">Connect with EICT graduates making an impact across industries.</p>
-                <a href="/alumni" class="btn btn-warning">Meet Alumni</a>
+        <div class="card h-100 p-4">
+            <div style="width:48px;height:48px;background:rgba(245,158,11,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+                <i class="bi bi-people-fill" style="color:var(--accent);font-size:1.4rem;"></i>
             </div>
+            <h5 class="card-title">Alumni Network</h5>
+            <p class="card-text">Connect with EICT graduates already making an impact across industries and companies.</p>
+            <a href="/alumni" class="btn btn-warning mt-auto">Meet Alumni <i class="bi bi-arrow-right ms-1"></i></a>
         </div>
     </div>
 </div>
 
-<!-- CALL TO ACTION -->
-<div class="card mt-5 text-center p-5" style="background: linear-gradient(135deg, #003580, #0057b8); color: white; border-radius: 16px;">
-    <h3>Are you an Employer or Alumni?</h3>
-    <p class="mb-3">Register an account and contact the admin to post opportunities or add your profile.</p>
-    <a href="/register" class="btn btn-warning btn-lg">Create an Account</a>
+<!-- CTA BANNER -->
+<div class="card p-5 text-center" style="background: linear-gradient(135deg, #1e3a5f, #1a2f52); border-color: var(--primary);">
+    <h3 class="fw-bold mb-2">Are you an Employer or EICT Alumni?</h3>
+    <p style="color:var(--text-muted);" class="mb-4">Register an account to post job opportunities or add your alumni profile to inspire current students.</p>
+    <div>
+        <a href="/register" class="btn btn-primary btn-lg me-3">
+            <i class="bi bi-person-plus me-2"></i>Create Account
+        </a>
+        <a href="/contact" class="btn btn-outline-light btn-lg">
+            <i class="bi bi-envelope me-2"></i>Contact Us
+        </a>
+    </div>
 </div>
 
 {% endblock %}
