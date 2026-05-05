@@ -57,6 +57,7 @@ class Alumni(db.Model):
     company = db.Column(db.String(100), nullable=False)
     linkedin = db.Column(db.String(200))
     bio = db.Column(db.Text)
+    photo = db.Column(db.String(200))
     posted_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):

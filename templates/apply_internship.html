@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <p class="page-title"><i class="bi bi-send me-2" style="color:var(--success);"></i>Apply for Internship</p>
+
+        <!-- Internship Summary -->
+        <div class="card p-4 mb-4" style="border-color:var(--success);">
+            <div>
+                <span class="badge bg-success mb-2">Internship</span>
+                <h5 class="mb-1">{{ internship.title }}</h5>
+                <p class="mb-0" style="color:var(--text-muted);">
+                    <i class="bi bi-building me-1"></i>{{ internship.company }}
+                    <span class="mx-2">•</span>
+                    <i class="bi bi-geo-alt me-1"></i>{{ internship.location }}
+                    <span class="mx-2">•</span>
+                    <i class="bi bi-clock me-1"></i>{{ internship.duration }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Application Form -->
+        <div class="card p-4">
+            <h6 class="fw-bold mb-4" style="color:var(--text-muted);">YOUR DETAILS</h6>
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Your full name" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" name="email" class="form-control" placeholder="your@email.com" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" name="phone" class="form-control" placeholder="+234 000 000 0000" required>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Cover Letter</label>
+                    <textarea name="cover_letter" class="form-control" rows="6"
+                        placeholder="Tell them why you're the right fit for this internship..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success w-100 py-2">
+                    <i class="bi bi-send me-2"></i>Submit Application
+                </button>
+                <a href="/internships" class="btn btn-secondary w-100 mt-2">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Internships
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

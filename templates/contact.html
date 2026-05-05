@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <p class="page-title"><i class="bi bi-envelope me-2" style="color:var(--primary);"></i>Contact Us</p>
+        <p class="page-subtitle">Have a question or want to post an opportunity? Send us a message.</p>
+
+        <div class="card p-4">
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Your full name" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" name="email" class="form-control" placeholder="your@email.com" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Subject</label>
+                    <select name="subject" class="form-select">
+                        <option>General Enquiry</option>
+                        <option>Post a Job Listing</option>
+                        <option>Post an Internship</option>
+                        <option>Alumni Registration</option>
+                        <option>Technical Issue</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Message</label>
+                    <textarea name="message" class="form-control" rows="5" placeholder="Write your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-2">
+                    <i class="bi bi-send me-2"></i>Send Message
+                </button>
+            </form>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="row g-3 mt-3">
+            <div class="col-md-4">
+                <div class="card p-3 text-center">
+                    <i class="bi bi-geo-alt" style="font-size:1.5rem;color:var(--primary);"></i>
+                    <p class="mb-0 mt-2 small fw-semibold">Location</p>
+                    <p class="mb-0 small" style="color:var(--text-muted);">Jos, Plateau State, Nigeria</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 text-center">
+                    <i class="bi bi-envelope" style="font-size:1.5rem;color:var(--primary);"></i>
+                    <p class="mb-0 mt-2 small fw-semibold">Email</p>
+                    <p class="mb-0 small" style="color:var(--text-muted);">info@eict.edu.ng</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 text-center">
+                    <i class="bi bi-clock" style="font-size:1.5rem;color:var(--primary);"></i>
+                    <p class="mb-0 mt-2 small fw-semibold">Response Time</p>
+                    <p class="mb-0 small" style="color:var(--text-muted);">Within 24 hours</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

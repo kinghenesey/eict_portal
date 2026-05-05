@@ -1,36 +1,72 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h2>💼 Job Listings</h2>
+<p class="page-title"><i class="bi bi-briefcase me-2" style="color:var(--primary);"></i>Job Listings</p>
+<p class="page-subtitle">Browse opportunities posted for EICT students and graduates.</p>
+
+<!-- SEARCH BAR -->
+<div class="search-bar mb-4">
+    <form method="GET" action="/jobs">
+        <div class="row g-2">
+            <div class="col-md-5">
+                <input type="text" name="search" class="form-control" placeholder="🔍 Search by title or company..." value="{{ search }}">
+            </div>
+            <div class="col-md-3">
+                <input type="text" name="location" class="form-control" placeholder="📍 Filter by location..." value="{{ location }}">
+            </div>
+            <div class="col-md-2">
+                <select name="job_type" class="form-select">
+                    <option value="">All Types</option>
+                    <option value="Full-Time" {% if job_type == 'Full-Time' %}selected{% endif %}>Full-Time</option>
+                    <option value="Part-Time" {% if job_type == 'Part-Time' %}selected{% endif %}>Part-Time</option>
+                    <option value="Contract" {% if job_type == 'Contract' %}selected{% endif %}>Contract</option>
+                    <option value="Remote" {% if job_type == 'Remote' %}selected{% endif %}>Remote</option>
+                </select>
+            </div>
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-primary w-100">Go</button>
+            </div>
+            <div class="col-md-1">
+                <a href="/jobs" class="btn btn-secondary w-100">Clear</a>
+            </div>
+        </div>
+    </form>
 </div>
 
 {% if jobs %}
-    <div class="row g-4">
-        {% for job in jobs %}
-        <div class="col-md-6">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <span class="badge bg-primary mb-2">{{ job.job_type }}</span>
-                    <h5 class="card-title">{{ job.title }}</h5>
-                    <h6 class="text-muted">🏢 {{ job.company }}</h6>
-                    <p class="text-muted small">📍 {{ job.location }}</p>
-                    <hr>
-                    <p class="card-text">{{ job.description[:150] }}...</p>
-                    <p class="small"><strong>Requirements:</strong> {{ job.requirements[:100] }}...</p>
-                    <p class="text-muted small">Posted: {{ job.posted_at.strftime('%B %d, %Y') }}</p>
-                </div>
+<div class="row g-4">
+    {% for job in jobs %}
+    <div class="col-md-6">
+        <div class="card h-100 p-4">
+            <div class="d-flex justify-content-between mb-2">
+                <span class="badge bg-primary">{{ job.job_type }}</span>
+                <small style="color:var(--text-muted);">{{ job.posted_at.strftime('%b %d, %Y') }}</small>
+            </div>
+            <h5 class="card-title mb-1">{{ job.title }}</h5>
+            <p style="color:var(--text-muted); font-size:0.9rem;">
+                <i class="bi bi-building me-1"></i>{{ job.company }}
+                <span class="mx-2">•</span>
+                <i class="bi bi-geo-alt me-1"></i>{{ job.location }}
+            </p>
+            <hr>
+            <p class="card-text">{{ job.description[:140] }}...</p>
+            <p class="small" style="color:var(--text-muted);"><strong>Requirements:</strong> {{ job.requirements[:100] }}...</p>
+            <div class="mt-auto pt-3">
+                <a href="/apply/{{ job.id }}" class="btn btn-primary w-100">
+                    <i class="bi bi-send me-2"></i>Apply Now
+                </a>
             </div>
         </div>
-        {% endfor %}
     </div>
-
+    {% endfor %}
+</div>
 {% else %}
-    <div class="alert alert-info text-center">
-        <h4>No job listings yet.</h4>
-        <p>Check back soon — opportunities will be posted here!</p>
-    </div>
+<div class="card p-5 text-center">
+    <i class="bi bi-search" style="font-size:2.5rem;color:var(--text-muted);"></i>
+    <h5 class="mt-3">No jobs found</h5>
+    <p style="color:var(--text-muted);">Try adjusting your search or check back later.</p>
+    <a href="/jobs" class="btn btn-primary mt-2">Clear Filters</a>
+</div>
 {% endif %}
 
 {% endblock %}
